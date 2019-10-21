@@ -17,7 +17,7 @@ namespace БКИТ_Лабораторная_1
                     a = Double.Parse(args[0]);
                     b = Double.Parse(args[1]);
                     c = Double.Parse(args[2]);
-                    //gggg
+                    
                 }
                 catch
                 {
