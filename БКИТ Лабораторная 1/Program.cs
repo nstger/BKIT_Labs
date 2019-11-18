@@ -36,9 +36,12 @@ namespace БКИТ_Лабораторная_1
             }
             if (a == 0 && b != 0)
             {
-                double root = (-1 * c) / b;
+                double r = (-1 * c) / b;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Корни " + Math.Sqrt(root) + " и -" + Math.Sqrt(root));
+                if (c <=0 )
+                Console.WriteLine("Корни " + Math.Sqrt(r) + " и -" + Math.Sqrt(r));
+                else if (c==0)  Console.WriteLine("Корень: " + Math.Sqrt(r));
+                else Console.WriteLine("Корни не являются действительными числами");
             }
             else if (a != 0)
             {
@@ -46,25 +49,59 @@ namespace БКИТ_Лабораторная_1
                 Console.WriteLine("Дискриминант: " + d);
                 if (d > 0)
                 {
-                    double root_1 = (-1 * b + Math.Sqrt(d)) / (2 * a);
-                    double root_2 = (-1 * b - Math.Sqrt(d)) / (2 * a);
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Корни уравнения: ");
-                    Console.WriteLine("x1: " + Math.Sqrt(root_1));
-                    Console.WriteLine("x2: " + -1 * Math.Sqrt(root_1));
-                    Console.WriteLine("x3: " + Math.Sqrt(root_2));
-                    Console.WriteLine("x4: " + -1 * Math.Sqrt(root_2));
+                    double r_1 = (-1 * b + Math.Sqrt(d)) / (2 * a);
+                    double r_2 = (-1 * b - Math.Sqrt(d)) / (2 * a);
+                    if (r_1 > 0 && r_2 >= 0)
+                    {
+                        if (r_2 != 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Корни уравнения: ");
+                            Console.WriteLine("x1: " + Math.Sqrt(r_1));
+                            Console.WriteLine("x2: " + -1 * Math.Sqrt(r_1));
+                            Console.WriteLine("x3: " + Math.Sqrt(r_2));
+                            Console.WriteLine("x4: " + -1 * Math.Sqrt(r_2));
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Корни уравнения: ");
+                            Console.WriteLine("x1: " + Math.Sqrt(r_1));
+                            Console.WriteLine("x2: " + -1 * Math.Sqrt(r_1));
+                            Console.WriteLine("x3: " + Math.Sqrt(r_2));
+                        }
+                    }
+                    else if (r_1 > 0 && r_2 < 0)
+                    {
+                        Console.WriteLine("Корни уравнения: ");
+                        Console.WriteLine("x1: " + Math.Sqrt(r_1));
+                        Console.WriteLine("x2: " + -1 * Math.Sqrt(r_1));
+                        Console.WriteLine("x3 и x4 не являются действительными числами");
+                    }
+                    else if (r_1 < 0 && r_2 > 0)
+                    {
+                        Console.WriteLine("x1: " + Math.Sqrt(r_2));
+                        Console.WriteLine("x2: " + -1 * Math.Sqrt(r_2));
+                        Console.WriteLine("x3 и x4 не являются действительными числами");
+                    }
+                    else if (r_1 == 0)
+                    {
+                        Console.WriteLine("x: " + Math.Sqrt(r_1));
+                    }
                 }
+
                 else if (d < 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Корней нет :-( ");
+                    Console.WriteLine("Действительных корней нет :-( ");
                 }
                 else
                 {
-                    double root = (b + Math.Sqrt(d)) / (2 * a);
+                    double r = (b + Math.Sqrt(d)) / (2 * a);
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Корни уравнения: " + Math.Sqrt(root) + " и " + -1 * Math.Sqrt(root));
+                    if (r != 0)
+                        Console.WriteLine("Корни уравнения: " + Math.Sqrt(r) + " и " + -1 * Math.Sqrt(r));
+                    else Console.WriteLine("Корень: " + Math.Sqrt(r));
                 }
                 Console.ResetColor();
             }
